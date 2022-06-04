@@ -2,7 +2,7 @@
     <a href="{% url 'news:story' story.id %}">
         {% if position < 5 %} <img src="../static/news/images/placeholder-{{ position }}.jpg">
             {% else %}
-            <img src="https://picsum.photos/600">
+            <img src="{{ story.image }}">
             {% endif %}
             <div class="story-card-text">
                 <h3>{{ story.title }}</h3>
@@ -11,3 +11,5 @@
             </div>
     </a>
 </div>
+
+<!-- https://picsum.photos/600 -->
