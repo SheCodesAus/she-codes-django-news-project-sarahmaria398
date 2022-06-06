@@ -1,17 +1,14 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 {% block content %}
+<h2>Profile Information:</h2>
 {% if request.user.is_authenticated %}
-<form action="" method="post" enctype="">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="submit">
-</form>
+<h3>Your Username is: {{ user.username }}</h3>
 {% else %}
-<h3>Login to write a new story!</h3>
+<h3>Login to see your User Information!</h3>
 <a href="{% url 'login' %}">Login</a>
 <h4>Don't have an Account? Sign up!</h4>
 <a href="{% url 'users:createAccount' %}">Sign Up</a>
 {% endif %}
-
+<!-- <h3>{{ user.is_superuser }}</h3> -->
 {% endblock %}
