@@ -11,3 +11,7 @@ class StoryForm(ModelForm):
 
 
 
+class StoryFormUpdate(ModelForm):
+    class Meta:
+        model = NewsStory
+        fields = ['title', 'content', 'image']
