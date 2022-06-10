@@ -1,7 +1,8 @@
 from django.views import generic
 from django.urls import reverse_lazy
-from .models import NewsStory
+from .models import  NewsStory
 from .forms import StoryForm, StoryFormUpdate
+from django.http import HttpResponseRedirect
 
 
 class IndexView(generic.ListView):
@@ -17,6 +18,22 @@ class IndexView(generic.ListView):
         context['latest_stories'] = stories[:4]
         context['all_stories'] = stories
         return context
+
+
+# class IndexViewSelected(generic.ListView):
+#     template_name = 'news/index.html'
+
+#     def get_queryset(self):
+#         '''Return all news stories.'''
+#         return NewsStory.objects.all()
+
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         stories = NewsStory.objects.all().filter('{{user.name}}')
+#         context['all_stories'] = stories
+#         return context
+
+
 
 
 class StoryView(generic.DetailView):
@@ -46,16 +63,38 @@ class UpdateStoryView(generic.UpdateView):
         return NewsStory.objects.all()
 
 
-# class IndexViewSelected(generic.ListView):
-#     template_name = 'news/index.html'
+
+
+
+
+class DeleteStoryView(generic.DeleteView):
+    context_object_name = 'storyForm'
+    template_name = 'news/deleteStory.html'
+
+    def get_queryset(self):
+        '''Return all news stories.'''
+        return NewsStory.objects.all()
+
+    def delete_data(request, story_id=None):
+        post_to_delete=NewsStory.objects.all().get(id=story_id)
+        post_to_delete.delete()
+        success_url = reverse_lazy('news:index')
+
+    
+        # return HttpResponseRedirect(IndexView)
+
+#     success_url = reverse_lazy('news:index')
 
 #     def get_queryset(self):
 #         '''Return all news stories.'''
 #         return NewsStory.objects.all()
 
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         stories = NewsStory.objects.all().filter('{{user.name}}')
-#         # context['latest_stories'] = stories[:4]
-#         context['all_stories'] = stories
-#         return context
+
+
+# class CreateMyModelView(CreateView):
+#     model = MyModel
+#     form_class = MyModelForm
+#     success_url = reverse_lazy('news:index')
+
+
+
