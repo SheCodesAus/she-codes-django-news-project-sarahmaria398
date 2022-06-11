@@ -28,11 +28,11 @@ class IndexView(generic.ListView):
 #         return NewsStory.objects.all()
 
 #     def get_author_name(self, **kwargs, pk):
-        # user = self.get_object(pk)
-        # context = {}
-        # context['latest_stories'] = NewsStory.objects.all().filter(author=user)[:4]
-        # context['all_stories'] = NewsStory.objects.all().filter(author=user).all()
-        # return context
+#         user = self.get_object(pk)
+#         context = {}
+#         context['latest_stories'] = NewsStory.objects.all().filter(author=user)[:4]
+#         context['all_stories'] = NewsStory.objects.all().filter(author=user).all()
+#         return context
 
 
 

@@ -6,13 +6,16 @@
 {% endblock %}
 {% block content %}
 
-<h2>Latest News</h2>
-<p>View by User: {{ user.name }}</p>
+<!-- <h2>Latest News</h2>
+<p>View by User: </p>
 
-<form action="" method="post">{% csrf_token %}
-    {{ form.as_p }}
+<form action="" method="post">
+    {% csrf_token %}
+    {{% for user in user %}}}
+    {{ story.author }}
+    {{% endfor %}}
     <input type="submit" value="Filter" />
-</form>
+</form> -->
 
 
 <div id="latest-stories">
