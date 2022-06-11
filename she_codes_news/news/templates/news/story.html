@@ -9,7 +9,7 @@
     <div id="story-content">
         <img src="{{ story.image }}">
         {{ story.content|linebreaks }}
-        <a href="{% url 'news:index' %}">Edit Story</a>
+        <a href="{% url 'news:updateStory' pk=story.id %}">Edit Story</a>
         <a href="{% url 'news:deleteStory' pk=story.id %}">Delete Story</a>
     </div>
     {% endblock %}
