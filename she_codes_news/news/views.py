@@ -27,11 +27,12 @@ class IndexView(generic.ListView):
 #         '''Return all news stories.'''
 #         return NewsStory.objects.all()
 
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         stories = NewsStory.objects.all().filter('{{user.name}}')
-#         context['all_stories'] = stories
-#         return context
+#     def get_author_name(self, **kwargs, pk):
+        # user = self.get_object(pk)
+        # context = {}
+        # context['latest_stories'] = NewsStory.objects.all().filter(author=user)[:4]
+        # context['all_stories'] = NewsStory.objects.all().filter(author=user).all()
+        # return context
 
 
 

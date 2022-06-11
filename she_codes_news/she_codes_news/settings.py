@@ -32,11 +32,12 @@ DEBUG = os.environ.get('DJANGO_DEBUG') != 'False'
 ALLOWED_HOSTS = ['*']
 
 
-
+CORS_ALLOW_ALL_ORIGINS = True
 
 INSTALLED_APPS = [
     # points to news > apps.py , already in there. telling django we created a news app.
     'news.apps.NewsConfig',
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -51,6 +52,7 @@ LOGIN_REDIRECT_URL = 'news:index'
 LOGOUT_REDIRECT_URL = 'news:index'
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
