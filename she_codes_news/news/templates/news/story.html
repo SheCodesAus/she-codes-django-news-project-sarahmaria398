@@ -3,6 +3,8 @@
 {% endblock %}
 {% block content %}
 
+{% if request.user.is_authenticated %}
+{% if user == writer %}
 <div id="story-wrapper">
     <h2>{{ story.title }}</h2>
     <h4>{{ story.author }}</h4>
@@ -12,4 +14,14 @@
         <a href="{% url 'news:updateStory' pk=story.id %}">Edit Story</a>
         <a href="{% url 'news:deleteStory' pk=story.id %}">Delete Story</a>
     </div>
+    {% else %}
+    <h3>Unable to View stories</h3>
+    {% endif %}
+    {% else %}
+
+    <h3>Login to see your User Information!</h3>
+    <a href="{% url 'login' %}">Login</a>
+    <h4>Don't have an Account? Sign up!</h4>
+    <a href="{% url 'users:createAccount' %}">Sign Up</a>
+    {% endif %}
     {% endblock %}
