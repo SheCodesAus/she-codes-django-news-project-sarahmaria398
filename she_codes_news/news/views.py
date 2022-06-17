@@ -21,22 +21,6 @@ class IndexView(generic.ListView):
         return context
 
 
-# class IndexViewSelected(generic.ListView):
-#     template_name = 'news/index.html'
-
-#     def get_queryset(self):
-#         '''Return all news stories.'''
-#         return NewsStory.objects.all()
-
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         stories = NewsStory.objects.all().filter('{{user.name}}')
-#         context['all_stories'] = stories
-#         return context
-
-
-
-
 class StoryView(generic.DetailView):
     model = NewsStory
     template_name = 'news/story.html'
@@ -64,31 +48,24 @@ class UpdateStoryView(generic.UpdateView):
         return NewsStory.objects.all()
 
 
-
-
-
-
 class DeleteStoryView(generic.DeleteView):
+    model = NewsStory
+    template_name = 'news/deleteStory.html'
+    success_url = reverse_lazy('news:index')
+
     def delete_data(request, story_id):
         post_to_delete=NewsStory.objects.get(id=story_id)
         post_to_delete.delete()
-        return redirect('news:index')
 
+class AuthorsListView(generic.ListView):
+    template_name = 'news/author.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(AuthorsListView, self).get_context_data(**kwargs)
+        context['author'] = NewsStory.objects.all()
+        return context
+
+    def get_queryset(self):
+        author_id = self.kwargs['pk']
+        return NewsStory.objects.filter(author = author_id,)
     
-        # return HttpResponseRedirect(IndexView)
-
-#     success_url = reverse_lazy('news:index')
-
-#     def get_queryset(self):
-#         '''Return all news stories.'''
-#         return NewsStory.objects.all()
-
-
-
-# class CreateMyModelView(CreateView):
-#     model = MyModel
-#     form_class = MyModelForm
-#     success_url = reverse_lazy('news:index')
-
-
-
