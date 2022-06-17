@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@700&display=swap');
+
+body {
+    background-color: rgb(240, 229, 211);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(0, 0, 0);
+}
+
+form {
+    background-color: rgba(240, 238, 230, 0.644);
+    border: 0.1rem solid rgba(211, 211, 211, 0.811);
+}
+
+form p {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+img {
+    filter: grayscale(0%);
+}
+
+h1 {
+    font-family: 'Montserrat Subrayada', sans-serif;
+    text-decoration: none;
+    font-size: 4rem;
+    margin: 0;
+}
+
+h2 {
+    font-family: 'Montserrat Subrayada', sans-serif;
+}
+
+h3 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+#header-text {
+    flex-basis: 80%;
+    display: flex;
+}
+
+nav {
+    flex-basis: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+a {
+    margin: 2px;
+    text-decoration: none;
+    color: #000;
+}
+
+a,
+p {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}

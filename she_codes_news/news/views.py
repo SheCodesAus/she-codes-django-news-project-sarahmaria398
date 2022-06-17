@@ -1,5 +1,6 @@
 from django.views import generic
 from django.urls import reverse_lazy
+from django.shortcuts import redirect
 from .models import  NewsStory
 from .forms import StoryForm, StoryFormUpdate
 from django.http import HttpResponseRedirect
@@ -15,7 +16,7 @@ class IndexView(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         stories = NewsStory.objects.all().order_by('-pub_date')
-        context['latest_stories'] = stories[:4]
+        context['latest_stories'] = stories[:3]
         context['all_stories'] = stories
         return context
 
@@ -68,17 +69,10 @@ class UpdateStoryView(generic.UpdateView):
 
 
 class DeleteStoryView(generic.DeleteView):
-    context_object_name = 'storyForm'
-    template_name = 'news/deleteStory.html'
-
-    def get_queryset(self):
-        '''Return all news stories.'''
-        return NewsStory.objects.all()
-
-    def delete_data(request, story_id=None):
-        post_to_delete=NewsStory.objects.all().get(id=story_id)
+    def delete_data(request, story_id):
+        post_to_delete=NewsStory.objects.get(id=story_id)
         post_to_delete.delete()
-        success_url = reverse_lazy('news:index')
+        return redirect('news:index')
 
     
         # return HttpResponseRedirect(IndexView)

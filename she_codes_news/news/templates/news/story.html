@@ -3,13 +3,30 @@
 {% endblock %}
 {% block content %}
 
+{% if request.user.is_authenticated and user.id == story.author.id %}
+
 <div id="story-wrapper">
     <h2>{{ story.title }}</h2>
-    <h4>{{ story.author }}</h4>
+    <h4>Author: {{ story.author }}</h4>
     <div id="story-content">
         <img src="{{ story.image }}">
         {{ story.content|linebreaks }}
-        <a href="{% url 'news:index' %}">Edit Story</a>
+        <a href="{% url 'news:updateStory' pk=story.id %}">Edit Story</a>
         <a href="{% url 'news:deleteStory' pk=story.id %}">Delete Story</a>
     </div>
+
+    {% else %}
+
+    <h3>Unable to View Stories</h3>
+    <br>
+
+    {% endif %}
+
+    {% if request.user.is_authenticated == False %}
+    <h3>Login to see your own Stories</h3>
+    <a href="{% url 'login' %}">Login</a>
+    <h4>Don't have an Account? Sign up!</h4>
+    <a href="{% url 'users:createAccount' %}">Sign Up</a>
+
+    {% endif %}
     {% endblock %}

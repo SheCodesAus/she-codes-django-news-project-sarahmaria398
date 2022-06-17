@@ -5,17 +5,9 @@
 <link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
 {% endblock %}
 {% block content %}
-
-<h2>Latest News</h2>
-<p>View by User: {{ user.name }}</p>
-
-<form action="" method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Filter" />
-</form>
-
-
-<div id="latest-stories">
+<br></br>
+<h2>Latest Stories</h2>
+<div id="all-stories">
     {% if latest_stories %}
     {% for story in latest_stories %}
     {% include "./storyCard.html" with story=story position=forloop.counter %}
@@ -25,6 +17,9 @@
     {% endif %}
 </div>
 
+<br>
+<h2>All Stories</h2>
+<br>
 <div id="all-stories">
     {% if latest_stories %}
     {% for story in all_stories %}
