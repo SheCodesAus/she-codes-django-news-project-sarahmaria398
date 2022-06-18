@@ -3,6 +3,8 @@
 {% endblock %}
 {% block content %}
 
+{% if request.user.is_authenticated %}
+{% if user == writer %}
 <div id="story-wrapper">
 
 
@@ -12,11 +14,13 @@
     <div id="story-content">
         <img src="{{ story.image }}">
         {{ story.content|linebreaks }}
+
         {% if request.user.is_authenticated %}
         {% if user.id == story.author.id %}
         <a href="{% url 'news:updateStory' pk=story.id %}">Edit Story</a>
         <a href="{% url 'news:deleteStory' pk=story.id %}">Delete Story</a>
     </div>
     {% endif %}
+
     {% endif %}
     {% endblock %}
