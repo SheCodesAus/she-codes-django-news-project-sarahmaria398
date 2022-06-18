@@ -3,7 +3,8 @@
 {% block content %}
 <h2>Profile Information:</h2>
 {% if request.user.is_authenticated %}
-<h3>Your Username is: {{ user.username }}</h3>
+<h3 id="username">Your Username is: {{ user.username }}</h3>
+
 
 {% else %}
 <h3>Login to see your User Information!</h3>
