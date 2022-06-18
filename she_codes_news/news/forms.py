@@ -3,6 +3,7 @@ from django.forms import ModelForm
 
 from users.models import CustomUser
 from .models import NewsStory
+from users.models import CustomUser
 
 class StoryForm(ModelForm):
     class Meta:
@@ -17,14 +18,8 @@ class StoryForm(ModelForm):
         return writer
 
 
+
 class StoryFormUpdate(ModelForm):
     class Meta:
         model = NewsStory
         fields = ['title', 'content', 'image']
-
-# USERS = [('orange', 'lime')]
-
-# class MyModelForm(ModelForm):
-#     class Meta:
-#         model = MyModel
-#         fields = ['color']

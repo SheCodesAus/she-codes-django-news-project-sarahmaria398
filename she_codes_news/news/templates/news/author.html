@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- <h1>All Stories by: {{story.author}}</h1> -->
+{% if author_list %}
+<ul>
+    {% for story in author_list %}
+    <div id="story-wrapper">
+        <h2>{{ story.title }}</h2>
+        <h3>{{ story.author }}</h3>
+        <div id="story-content">
+            {{ story.content|linebreaks }}
+            <img src="{{ story.image }}">
+        </div>
+    </div>
+    {% endfor %}
+</ul>
+{% else %}
+<p>There are no stories by this author.</p>
+{% endif %}
+
+{% endblock %}

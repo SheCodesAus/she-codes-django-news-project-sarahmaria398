@@ -1,38 +1,54 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@200&family=Berkshire+Swash&family=League+Spartan:wght@100&family=Open+Sans:wght@500&family=Quicksand:wght@300&family=Satisfy&display=swap');
+/* url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@700&display=swap'); */
+
+* {
+    font-family: 'Anek Malayalam', sans-serif;
+}
 
 body {
-    background-color: rgb(240, 229, 211);
+    background-color: rgb(255, 255, 255);
 }
 
 header {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    row-gap: 0.5rem;
     border-bottom: 1px solid rgb(0, 0, 0);
 }
 
 form {
-    background-color: rgba(240, 238, 230, 0.644);
+    background-color: rgba(232, 232, 232, 0.644);
     border: 0.1rem solid rgba(211, 211, 211, 0.811);
+
 }
 
 form p {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+    font-family: 'Anek Malayalam', sans-serif;
+    font-weight: bold;
 }
 
-img {
-    filter: grayscale(0%);
+input[type="submit" i] {
+    background-color: aliceblue;
+    padding: 6px 8px;
+    font-size: 1.3rem;
+
 }
 
 h1 {
-    font-family: 'Montserrat Subrayada', sans-serif;
+    font-family: 'Anek Malayalam', sans-serif;
     text-decoration: none;
     font-size: 4rem;
     margin: 0;
+    text-align: center;
 }
 
 h2 {
-    font-family: 'Montserrat Subrayada', sans-serif;
+    font-family: 'Anek Malayalam', sans-serif;
+    text-align: center;
+    font-weight: 100;
+    font-size: 3.5rem;
+
 }
 
 h3 {
@@ -53,12 +69,16 @@ nav {
 }
 
 a {
-    margin: 2px;
+    margin-bottom: 5px;
+    margin-left: 8px;
+    margin-right: 8px;
     text-decoration: none;
     color: #000;
 }
 
 a,
 p {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+    font-family: 'Anek Malayalam', sans-serif;
+    /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+    font-size: 1.5rem;
 }
