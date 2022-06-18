@@ -37,7 +37,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 INSTALLED_APPS = [
     # points to news > apps.py , already in there. telling django we created a news app.
     'news.apps.NewsConfig',
-    # 'corsheaders',
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

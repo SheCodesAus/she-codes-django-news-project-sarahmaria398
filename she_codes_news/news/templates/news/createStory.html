@@ -2,6 +2,7 @@
 
 {% block content %}
 {% if request.user.is_authenticated %}
+<h2>Write New Story:</h2>
 <form action="" method="post" enctype="">
     {% csrf_token %}
     {{ form.as_p }}

@@ -10,7 +10,7 @@ class NewsStory(models.Model):
         )
     pub_date = models.DateTimeField()
     content = models.TextField()
-    image = models.CharField(max_length=200)
+    image = models.CharField(max_length=400)
 
     def __str__(self):
         return self.title
