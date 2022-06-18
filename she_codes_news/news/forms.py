@@ -17,10 +17,3 @@ class StoryFormUpdate(ModelForm):
     class Meta:
         model = NewsStory
         fields = ['title', 'content', 'image']
-
-# USERS = [('orange', 'lime')]
-
-# class MyModelForm(ModelForm):
-#     class Meta:
-#         model = MyModel
-#         fields = ['color']

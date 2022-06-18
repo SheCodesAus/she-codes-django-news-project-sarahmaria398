@@ -1,18 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-{% if request.user.is_authenticated %}
+
 <h2>Delete Story {{ story.title }} {{ story.id }}</h2>
 <form action="" method="post" enctype="">
     {% csrf_token %}
     <strong>Are you sure?</strong>
     <input type="submit" value="Delete">
 </form>
-{% else %}
-
-<h3>Login to delete a new story!</h3>
-<a href="{% url 'login' %}">Login</a>
-<h4>Don't have an Account? Sign up!</h4>
-<a href="{% url 'users:createAccount' %}">Sign Up</a>
-{% endif %}
 {% endblock %}

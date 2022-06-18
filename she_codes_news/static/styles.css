@@ -1,4 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@200&family=Berkshire+Swash&family=League+Spartan:wght@100&family=Open+Sans:wght@500&family=Quicksand:wght@300&family=Satisfy&display=swap');
+/* url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@700&display=swap'); */
+
+* {
+    font-family: 'Anek Malayalam', sans-serif;
+}
 
 body {
     background-color: rgb(255, 255, 255);
@@ -13,16 +18,25 @@ header {
 }
 
 form {
-    background-color: rgba(240, 238, 230, 0.644);
+    background-color: rgba(232, 232, 232, 0.644);
     border: 0.1rem solid rgba(211, 211, 211, 0.811);
+
 }
 
 form p {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+    font-family: 'Anek Malayalam', sans-serif;
+    font-weight: bold;
+}
+
+input[type="submit" i] {
+    background-color: aliceblue;
+    padding: 6px 8px;
+    font-size: 1.3rem;
+
 }
 
 h1 {
-    font-family: 'Montserrat Subrayada', sans-serif;
+    font-family: 'Anek Malayalam', sans-serif;
     text-decoration: none;
     font-size: 4rem;
     margin: 0;
@@ -30,8 +44,10 @@ h1 {
 }
 
 h2 {
-    font-family: 'Montserrat Subrayada', sans-serif;
+    font-family: 'Anek Malayalam', sans-serif;
     text-align: center;
+    font-weight: 100;
+    font-size: 3.5rem;
 
 }
 
@@ -58,10 +74,11 @@ a {
     margin-right: 8px;
     text-decoration: none;
     color: #000;
-    font-size: larger;
 }
 
 a,
 p {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Anek Malayalam', sans-serif;
+    /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
     font-size: 1.5rem;
+}

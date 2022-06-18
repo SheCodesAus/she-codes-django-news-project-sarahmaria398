@@ -57,8 +57,12 @@ class DeleteStoryView(generic.DeleteView):
         post_to_delete=NewsStory.objects.get(id=story_id)
         post_to_delete.delete()
 
+    
 class AuthorsListView(generic.ListView):
+    form_class = StoryForm
+    context_object_name = 'author_list'
     template_name = 'news/author.html'
+    paginate_by = 50
 
     def get_context_data(self, **kwargs):
         context = super(AuthorsListView, self).get_context_data(**kwargs)
@@ -68,4 +72,3 @@ class AuthorsListView(generic.ListView):
     def get_queryset(self):
         author_id = self.kwargs['pk']
         return NewsStory.objects.filter(author = author_id,)
-    
