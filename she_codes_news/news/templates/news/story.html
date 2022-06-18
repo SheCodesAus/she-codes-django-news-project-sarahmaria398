@@ -3,12 +3,7 @@
 {% endblock %}
 {% block content %}
 
-{% if request.user.is_authenticated %}
-{% if user == writer %}
 <div id="story-wrapper">
-
-
-
     <h2>{{ story.title }}</h2>
     <h4>Author: <a href="{% url 'news:author' story.author.id %}">{{story.author}}</a></h4>
     <div id="story-content">
@@ -16,11 +11,9 @@
         {{ story.content|linebreaks }}
 
         {% if request.user.is_authenticated %}
-        {% if user.id == story.author.id %}
         <a href="{% url 'news:updateStory' pk=story.id %}">Edit Story</a>
         <a href="{% url 'news:deleteStory' pk=story.id %}">Delete Story</a>
     </div>
     {% endif %}
 
-    {% endif %}
     {% endblock %}
