@@ -7,14 +7,16 @@
 {% if author_list %}
 <ul>
     {% for story in author_list %}
-    <div id="story-wrapper">
-        <h2>{{ story.title }}</h2>
-        <h3>{{ story.author }}</h3>
-        <div id="story-content">
-            {{ story.content|linebreaks }}
-            <!-- <img src="{{ story.image }}"> -->
+    <a href="{% url 'news:story' story.id %}">
+        <div id="story-wrapper">
+            <h2>{{ story.title }}</h2>
+            <h3>{{ story.author }}</h3>
+            <div id="story-content">
+                {{ story.content|linebreaks }}
+                <!-- <img src="{{ story.image }}"> -->
+            </div>
         </div>
-    </div>
+    </a>
     {% endfor %}
 </ul>
 {% else %}
