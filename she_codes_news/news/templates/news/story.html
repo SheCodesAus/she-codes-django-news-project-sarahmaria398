@@ -1,4 +1,6 @@
-{% extends "base.html" %}{% load static %}{% block stylesheets %}
+{% extends "base.html" %}
+{% block title %} {{ story.title }} {% endblock %}
+{% load static %}{% block stylesheets %}
 <link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
 {% endblock %}
 {% block content %}
@@ -11,9 +13,6 @@
         <img src="{{ story.image }}">
         {{ story.content|linebreaks }}
 
-        <!-- {% if request.user.is_authenticated %}
-        <a href="#" type="submit" value="Favourite">Add to Favourites</a>
-        {% endif %} -->
 
         {% if user.id == story.author.id %}
         <a href="{% url 'news:updateStory' pk=story.id %}">Edit Story</a>

@@ -30,3 +30,4 @@ able to create a new story if I am logged in) - Write Story functionality only a
 Additional Info:
 - Links to Sign up and Login in Pages when user is logged out and trying to access a logged-in piece of functionality (edit/delete story/user profile page)
 - Upon clicking author title and redirecting to stories by that author page, clicking the article again redirects to that single article page.
+- Change the title of each page, so that the story title displays on the browser tab.
