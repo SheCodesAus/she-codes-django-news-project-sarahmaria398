@@ -73,9 +73,10 @@ class AuthorsListView(generic.ListView):
         author_id = self.kwargs['pk']
         return NewsStory.objects.filter(author = author_id,)
 
-# def CategoryView(request, cats):
-#     return render(request, 'categories.html', {'cats', 'cats'})
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 class CategoryListView(generic.ListView):
     form_class = StoryForm
     context_object_name = 'category_list'
@@ -90,7 +91,3 @@ class CategoryListView(generic.ListView):
         cats = self.kwargs['cats']
         return NewsStory.objects.filter(category = cats)
 
-
-# def detail_category(request, pk):
-#     category = get_object_or_404(Category, pk=pk)   #retrive single category
-#     return render(request, 'categories.html', {'category': category})
