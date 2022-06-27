@@ -72,11 +72,6 @@ class AuthorsListView(generic.ListView):
     def get_queryset(self):
         author_id = self.kwargs['pk']
         return NewsStory.objects.filter(author = author_id,)
-
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 class CategoryListView(generic.ListView):
     form_class = StoryForm
     context_object_name = 'category_list'
