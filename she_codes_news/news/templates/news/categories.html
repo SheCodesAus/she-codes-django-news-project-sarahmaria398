@@ -1,16 +1,22 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
+{% endblock %}
 {% block content %}
 
-<h2>Articles by Author</h2>
-{% if author_list %}
+
+<h2>Category List</h2>
+{% if category_list %}
 <ul>
-    {% for story in author_list %}
+
+    {% for story in category_list %}
     <a href="{% url 'news:story' story.id %}">
         <div id="story-wrapper">
             <h2>{{ story.title }}</h2>
             <h3>{{ story.author }}</h3>
+            <h3>{{ story.category }}</h3>
             <div id="story-content">
                 {{ story.content|linebreaks }}
                 <!-- <img src="{{ story.image }}"> -->
@@ -20,7 +26,8 @@
     {% endfor %}
 </ul>
 {% else %}
-<p>There are no stories by this author.</p>
+<p>There are no stories for this catrgory.</p>
+
 {% endif %}
 
 {% endblock %}

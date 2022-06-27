@@ -1,7 +1,7 @@
 from django.views import generic
 from django.urls import reverse_lazy
-from django.shortcuts import redirect
-from .models import  NewsStory
+from django.shortcuts import get_object_or_404, redirect, render
+from .models import  NewsStory, Category
 from .forms import StoryForm, StoryFormUpdate
 from django.http import HttpResponseRedirect
 
@@ -72,3 +72,25 @@ class AuthorsListView(generic.ListView):
     def get_queryset(self):
         author_id = self.kwargs['pk']
         return NewsStory.objects.filter(author = author_id,)
+
+# def CategoryView(request, cats):
+#     return render(request, 'categories.html', {'cats', 'cats'})
+
+class CategoryListView(generic.ListView):
+    form_class = StoryForm
+    context_object_name = 'category_list'
+    template_name = 'news/categories.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(CategoryListView, self).get_context_data(**kwargs)
+        context['category'] = NewsStory.objects.all()
+        return context
+
+    def get_queryset(self):
+        cats = self.kwargs['cats']
+        return NewsStory.objects.filter(category = cats)
+
+
+# def detail_category(request, pk):
+#     category = get_object_or_404(Category, pk=pk)   #retrive single category
+#     return render(request, 'categories.html', {'category': category})

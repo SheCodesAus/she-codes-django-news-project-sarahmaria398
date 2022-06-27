@@ -10,5 +10,5 @@ urlpatterns = [
     path('edit/<int:pk>/', views.UpdateStoryView.as_view(), name='updateStory'),
     path('delete/<int:pk>/', views.DeleteStoryView.as_view(), name='deleteStory'),
     path('author/<int:pk>/', views.AuthorsListView.as_view(), name= 'author'),
-
+    path('category/<str:cats>/', views.CategoryListView.as_view(), name='category'),
 ]

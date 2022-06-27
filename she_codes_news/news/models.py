@@ -19,7 +19,7 @@ class NewsStory(models.Model):
     pub_date = models.DateTimeField()
     content = models.TextField()
     image = models.CharField(max_length=1000)
-    category = models.CharField(max_length=200, default='uncategorised')
+    category = models.CharField(max_length=200, default='Cakes')
 
     def __str__(self):
         return self.title
