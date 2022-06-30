@@ -26,6 +26,7 @@ able to create a new story if I am logged in) - Write Story functionality only a
 
 # Additional Features
 ● Add the ability to update and delete stories - options to edit/delete only shown for the owner of that post.
+● Addition of Category to Story Posts, and to view a page by Category
 
 Additional Info:
 - Links to Sign up and Login in Pages when user is logged out and trying to access a logged-in piece of functionality (edit/delete story/user profile page)
